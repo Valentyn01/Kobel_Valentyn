@@ -1,0 +1,70 @@
+﻿#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+
+int main()
+{
+    int ax,ay,bx,by,cx,cy,AB,BC,AC,p,S,ax1,ay1,bx1,by1,cx1,cy1,AB1,BC1,AC1,p1,S1;
+printf("введіть точку ax=");
+    scanf("%d",&ax);
+printf("введіть точку ay=");
+    scanf("%d",&ay);
+printf("введіть точку bx=");
+    scanf("%d",&bx);
+printf("введіть точку by=");
+    scanf("%d",&by);
+printf("введіть точку cx=");
+    scanf("%d",&cx);
+printf("введіть точку cy=");
+    scanf("%d",&cy);
+printf("введіть точку ax1=");
+    scanf("%d",&ax1);
+printf("введіть точку ay1=");
+    scanf("%d",&ay1);
+printf("введіть точку bx1=");
+    scanf("%d",&bx1);
+printf("введіть точку by1=");
+    scanf("%d",&by1);
+printf("введіть точку cx1=");
+    scanf("%d",cx1);
+printf("введіть точку cy1=");
+    scanf("%d",&cy1);
+	if((ax==bx && bx==cx) || (ay==by && by==cy))
+	{
+        printf("невозможно ");
+	}
+	else if((ax1==bx1 && bx1==cx1) || (ay1==by1 && by1==cy1))
+	{
+        printf("невозможно ");
+	}
+	else if((ax==bx && ay==by) || (ax==cx && ay==cy) || (cx==bx && cy==by))
+	{
+        printf("невозможно ");
+	}
+	else
+	{
+		AB=sqrt(pow((bx-ax),2)+pow((by-ay),2));
+		BC=sqrt(pow((cx-bx),2)+pow((cy-by),2));
+		AC=sqrt(pow((cx-ax),2)+pow((cy-ay),2));
+		AB1=sqrt(pow((bx1-ax1),2)+pow((by1-ay1),2));
+		BC1=sqrt(pow((cx1-bx1),2)+pow((cy1-by1),2));
+		AC1=sqrt(pow((cx1-ax1),2)+pow((cy1-ay1),2));
+		p=(AB+BC+AC)/2;
+		p1=(AB1+BC1+AC1)/2;
+		S1=sqrt(p1*(p1-AB1)*(p1-BC1)*(p1-AC1));
+		S=sqrt(p*(p-AB)*(p-BC)*(p-AC));
+        if(S>S1)
+		{
+			printf("перший трикутник більше другого");
+		}
+		else if(S1>S)
+		{
+			printf("другий трикутник більше першого");
+		}
+		else
+		{
+			printf("трикутники рівні між собою");
+		}
+	}
+    return 0;
+}
